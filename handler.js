@@ -386,7 +386,7 @@ global.dfail = (type, m, conn) => {
       private: 'Gunakan perintah ini di Chat Pribadi!',
       admin: 'Hanya untuk *Admin*',
       botAdmin: 'Untuk menggunakan fitur ini, silahkan jadikan bot sebagai admin terlebih dahulu!',
-      unreg: 'Daftar dulu!\n\nContoh: #daftar Robby.16
+      unreg: 'Daftar dulu!\n\nContoh: #daftar Robby.16'
     }[type]
     if (msg) return m.reply(msg)
 }
