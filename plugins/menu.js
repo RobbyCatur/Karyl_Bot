@@ -144,14 +144,14 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           },
           {
             quickReplyButton: {
-  	      displayText: 'Rules,
-  	      id: '.rules,
+  	      displayText: 'Rules',
+  	      id: '.rules',
              }
           },
           {
             quickReplyButton: {
               displayText: 'Owner',
-              id: '.owner.,
+              id: '.owner.',
             }
           },
           {
