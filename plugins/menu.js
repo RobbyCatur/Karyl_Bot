@@ -123,12 +123,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    //conn.sendHydrated(m.chat, text.trim(), '© Robby Catur', null, 'https://instagram.com/robbyv_2', 'Instagram', 'https://wa.me/6282245409072/?text=Hai+min,+saya+butuh+bantuan+untuk+menggunakan+bot', `Butuh Bantuan\?`, [
-    //  ['Rules', '.rules'],
-    //  ['Creator', '.creator'],
-    //  ['Leaderboard', '.lb']
-    //], m)
-    m.reply('p')
+    conn.sendHydrated(m.chat, text.trim(), '© Robby Catur', null, 'https://instagram.com/robbyv_2', 'Instagram', 'https://wa.me/6282245409072/?text=Hai+min,+saya+butuh+bantuan+untuk+menggunakan+bot', `Butuh Bantuan\?`, [
+      ['Rules', '.rules'],
+      ['Creator', '.creator'],
+      ['Leaderboard', '.lb']
+    ], m)
+    //m.reply('p')
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
