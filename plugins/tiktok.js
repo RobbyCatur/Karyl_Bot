@@ -6,7 +6,7 @@ let handler = async (m, { conn, args }) => {
   let vid = json.result.video.nowm
   if (!json.result.video.nowm) throw `Link download tidak ditemukan ಥ_ಥ`
   let me = conn.user.name
-  conn.sendFile(m.chat, vid, 'tiktok.mp4', `${me} Tiktok Downloader V2`, m)
+  conn.sendFile(m.chat, vid, 'tiktok.mp4', `${me} Tiktok Downloader`, m)
 }
 handler.help = ['tiktok', 'tik', 'tt']
 handler.tags = ['downloader']
