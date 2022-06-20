@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 let handler = async (m, { conn, args }) => {
-  m.reply('Proses')
+  if (!args[0]) throw 'Mana link tiktoknya?'
+  else m.reply('Proses')
   let res = await fetch('https://hadi-api.herokuapp.com/api/tiktok/?url=' + args[0])
   let json = await res.json()
   let vid = json.result.video.nowm
