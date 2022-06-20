@@ -1,5 +1,7 @@
+const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys')
 let fs = require('fs')
 let path = require('path')
+let { MessageType } = require('@adiwajshing/baileys')
 let levelling = require('../lib/levelling')
 let tags = {
   'main': 'Main',
