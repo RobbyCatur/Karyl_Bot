@@ -25,38 +25,144 @@ module.exports = {
                 let user = global.db.data.users[m.sender]
                 if (typeof user !== 'object') global.db.data.users[m.sender] = {}
                 if (user) {
-                  if (!isNumber(user.exp)) user.exp = 0
-                  if (!isNumber(user.limit)) user.limit = 10
-                  if (!isNumber(user.lastclaim)) user.lastclaim = 0
-                  if (!('registered' in user)) user.registered = false
-                  if (!user.registered) {
-                    if (!('name' in user)) user.name = this.getName(m.sender)
-                    if (!isNumber(user.age)) user.age = -1
-                    if (!isNumber(user.regTime)) user.regTime = -1
-                }
-                  if (!isNumber(user.afk)) user.afk = -1
-                  if (!('afkReason' in user)) user.afkReason = ''
-                  if (!('banned' in user)) user.banned = false
-                  if (!isNumber(user.pc)) user.pc = 0
-                  if (!isNumber(user.toxic)) user.toxic = 0
-                  if (!isNumber(user.loot)) user.loot = 0
-                  if (!isNumber(user.level)) user.level = 0
-                  if (!user.role) user.role = 'Beginner'
-                  if (!('autolevelup' in user)) user.autolevelup = false
-        	} else global.db.data.users[m.sender] = {
-          	  exp: 0,
-          	  limit: 10,
-          	  lastclaim: 0,
-          	  registered: false,
-          	  name: this.getName(m.sender),
-          	  age: -1,
-          	  regTime: -1,
-          	  afk: -1,
-          	  afkReason: '',
-          	  banned: false,
-          	  level: 0,
-               	  role: 'Beginner',
-  		  autolevelup: false,
+                    if (!isNumber(user.exp)) user.exp = 0
+                    if (!isNumber(user.limit)) user.limit = 10
+                    if (!isNumber(user.lastclaim)) user.lastclaim = 0
+                    if (!('registered' in user)) user.registered = false
+                    if (!user.registered) {
+                        if (!('name' in user)) user.name = m.name
+                        if (!isNumber(user.age)) user.age = -1
+                        if (!isNumber(user.regTime)) user.regTime = -1
+                    }
+                    if (!isNumber(user.afk)) user.afk = -1
+                    if (!('afkReason' in user)) user.afkReason = ''
+                    if (!('banned' in user)) user.banned = false
+                    if (!isNumber(user.warn)) user.warn = 0
+                    if (!isNumber(user.level)) user.level = 0
+                    if (!user.role) user.role = 'Beginner'
+                    if (!('autolevelup' in user)) user.autolevelup = true
+
+                    if (!isNumber(user.money)) user.money = 0
+                    if (!isNumber(user.healt)) user.healt = 100
+                    if (!isNumber(user.limit)) user.limit = 0
+                    if (!isNumber(user.potion)) user.potion = 0
+                    if (!isNumber(user.sampah)) user.sampah = 0
+                    if (!isNumber(user.kayu)) user.kayu = 0
+                    if (!isNumber(user.batu)) user.batu = 0
+                    if (!isNumber(user.string)) user.string = 0
+                    if (!isNumber(user.petFood)) user.petFood = 0
+
+                    if (!isNumber(user.emerald)) user.emerald = 0
+                    if (!isNumber(user.diamond)) user.diamond = 0
+                    if (!isNumber(user.gold)) user.gold = 0
+                    if (!isNumber(user.iron)) user.iron = 0
+
+                    if (!isNumber(user.common)) user.common = 0
+                    if (!isNumber(user.uncommon)) user.uncommon = 0
+                    if (!isNumber(user.mythic)) user.mythic = 0
+                    if (!isNumber(user.legendary)) user.legendary = 0
+                    if (!isNumber(user.pet)) user.pet = 0
+
+                    if (!isNumber(user.kuda)) user.kuda = 0
+                    if (!isNumber(user.kudaexp)) user.kudaexp = 0
+                    if (!isNumber(user.kucing)) user.kucing = 0
+                    if (!isNumber(user.kucingexp)) user.kucingexp = 0
+                    if (!isNumber(user.rubah)) user.rubah = 0
+                    if (!isNumber(user.rubahexp)) user.rubahexp = 0
+                    if (!isNumber(user.anjing)) user.anjing = 0
+                    if (!isNumber(user.anjingexp)) user.anjingexp = 0
+
+                    if (!isNumber(user.kudalastfeed)) user.kudalastfeed = 0
+                    if (!isNumber(user.kucinglastfeed)) user.kucinglastfeed = 0
+                    if (!isNumber(user.rubahlastfeed)) user.rubahlastfeed = 0
+                    if (!isNumber(user.anjinglastfeed)) user.anjinglastfeed = 0
+
+                    if (!isNumber(user.armor)) user.armor = 0
+                    if (!isNumber(user.armordurability)) user.armordurability = 0
+                    if (!isNumber(user.sword)) user.sword = 0
+                    if (!isNumber(user.sworddurability)) user.sworddurability = 0
+                    if (!isNumber(user.pickaxe)) user.pickaxe = 0
+                    if (!isNumber(user.pickaxedurability)) user.pickaxedurability = 0
+                    if (!isNumber(user.fishingrod)) user.fishingrod = 0
+                    if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0
+
+                    if (!isNumber(user.lastclaim)) user.lastclaim = 0
+                    if (!isNumber(user.lastadventure)) user.lastadventure = 0
+                    if (!isNumber(user.lastfishing)) user.lastfishing = 0
+                    if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
+                    if (!isNumber(user.lastduel)) user.lastduel = 0
+                    if (!isNumber(user.lastmining)) user.lastmining = 0
+                    if (!isNumber(user.lasthunt)) user.lasthunt = 0
+                    if (!isNumber(user.lastweekly)) user.lastweekly = 0
+                    if (!isNumber(user.lastmonthly)) user.lastmonthly = 0
+                } else global.db.data.users[m.sender] = {
+                    exp: 0,
+                    limit: 10,
+                    lastclaim: 0,
+                    registered: false,
+                    name: m.name,
+                    age: -1,
+                    regTime: -1,
+                    afk: -1,
+                    afkReason: '',
+                    banned: false,
+                    warn: 0,
+                    level: 0,
+                    role: 'Beginner',
+                    autolevelup: true,
+
+                    money: 0,
+                    healt: 100,
+                    limit: 100,
+                    potion: 10,
+                    sampah: 0,
+                    kayu: 0,
+                    batu: 0,
+                    string: 0,
+
+                    emerald: 0,
+                    diamond: 0,
+                    gold: 0,
+                    iron: 0,
+
+                    common: 0,
+                    uncommon: 0,
+                    mythic: 0,
+                    legendary: 0,
+                    pet: 0,
+
+                    kuda: 0,
+                    kudaexp: 0,
+                    kucing: 0,
+                    kucingexp: 0,
+                    rubah: 0,
+                    rubahexp: 0,
+                    anjing: 0,
+                    anjingexp: 0,
+
+                    kudalastfeed: 0,
+                    kucinglastfeed: 0,
+                    rubahlastfeed: 0,
+                    anjinglastfeed: 0,
+
+                    armor: 0,
+                    armordurability: 0,
+                    sword: 0,
+                    sworddurability: 0,
+                    pickaxe: 0,
+                    pickaxedurability: 0,
+                    fishingrod: 0,
+                    fishingroddurability: 0,
+
+                    lastclaim: 0,
+                    lastadventure: 0,
+                    lastfishing: 0,
+                    lastdungeon: 0,
+                    lastduel: 0,
+                    lastmining: 0,
+                    lasthunt: 0,
+                    lastweekly: 0,
+                    lastmonthly: 0,
                 }
                 let chat = global.db.data.chats[m.chat]
                 if (typeof chat !== 'object') global.db.data.chats[m.chat] = {}
@@ -71,6 +177,7 @@ module.exports = {
                     if (!('delete' in chat)) chat.delete = true
                     if (!('antiLink' in chat)) chat.antiLink = false
                     if (!('viewonce' in chat)) chat.viewonce = false
+                    if (!('antiToxic' in chat)) chat.antiToxic = false
                 } else global.db.data.chats[m.chat] = {
                     isBanned: false,
                     welcome: false,
@@ -82,6 +189,7 @@ module.exports = {
                     delete: true,
                     antiLink: false,
                     viewonce: false,
+                    antiToxic: true,
                 }
             } catch (e) {
                 console.error(e)
@@ -124,8 +232,7 @@ module.exports = {
             let user = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) === m.sender) : {}) || {} // User Data
             let bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == this.user.jid) : {}) || {} // Your Data
             let isAdmin = user.isAdmin || user.isSuperAdmin || false // Is User Admin?
-            let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Are you Admin?
-	    let isBlocked = this.blocklist.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != this.user.jid).includes(m.sender) // Is User Blocked?
+             let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Are you Admin?
             for (let name in global.plugins) {
                 let plugin = global.plugins[name]
                 if (!plugin) continue
@@ -378,15 +485,16 @@ module.exports = {
 
 global.dfail = (type, m, conn) => {
     let msg = {
-      rowner: '_*HANYA UNTUK OWNER!!!*_',
-      owner: 'Maaf, hanya *Owner Bot* yang dapat menggunakan perintah ini',
-      mods: 'Maaf, hanya bisa digunakan oleh *Moderator Bot!*',
-      premium: 'Hanya untuk member _*Premium!*_, Silahkan hubungi owner untuk info lebih lanjut',
-      group: 'Gunakan perintah ini di dalam *Group!*',
-      private: 'Gunakan perintah ini di Chat Pribadi!',
-      admin: 'Hanya untuk *Admin*',
-      botAdmin: 'Untuk menggunakan fitur ini, silahkan jadikan bot sebagai admin terlebih dahulu!',
-      unreg: 'Daftar dulu!\n\nContoh: #daftar Robby.16'
+        rowner: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙿𝙾𝚁 𝙴𝙻/𝙻𝙰 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾/𝙰 (𝙾𝚆𝙽𝙴𝚁) 𝙳𝙴𝙻 𝙱𝙾𝚃*',
+        owner: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙿𝙾𝚁 𝙴𝙻/𝙻𝙰 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾/𝙰 (𝙾𝚆𝙽𝙴𝚁) 𝙳𝙴𝙻 𝙱𝙾𝚃*',
+        mods: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙿𝙾𝚁 𝙼𝙾𝙳𝙴𝚁𝙰𝙳𝙾𝚁𝙴𝚂 𝚈 𝙴𝙻/𝙻𝙰 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾/𝙰 (𝙾𝚆𝙽𝙴𝚁) 𝙳𝙴𝙻 𝙱𝙾𝚃*',
+        premium: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙿𝙾𝚁 𝚄𝚂𝚄𝙰𝚁𝙸𝙾𝚂 𝙿𝚁𝙴𝙼𝙸𝚄𝙼 𝚈 𝙴𝙻/𝙻𝙰 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾/𝙰 (𝙾𝚆𝙽𝙴𝚁) 𝙳𝙴𝙻 𝙱𝙾𝚃*',
+        group: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙴𝙽 𝙶𝚁𝚄𝙿𝙾𝚂*',
+        private: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙴𝙽 𝙲𝙷𝙰𝚃 𝙿𝚁𝙸𝚅𝙰𝙳𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃*',
+        admin: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙿𝙾𝚁 𝙰𝙳𝙼𝙸𝙽𝚂 𝙳𝙴𝙻 𝙶𝚁𝚄𝙿𝙾*',
+        botAdmin: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙿𝙰𝚁𝙰 𝙿𝙾𝙳𝙴𝚁 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂 𝙽𝙴𝙲𝙴𝚂𝙰𝚁𝙸𝙾 𝚀𝚄𝙴 𝙴𝙻 𝙱𝙾𝚃 𝚂𝙴𝙰 𝙰𝙳𝙼𝙸𝙽, 𝙰𝙲𝙴𝙽𝙳𝙴𝚁 𝙰 𝙰𝙳𝙼𝙸𝙽 𝙴𝚂𝚃𝙴 𝙽𝚄𝙼𝙴𝚁𝙾*',
+        unreg: '*[ 🛑 𝐇𝐄𝐘!! 𝐀𝐋𝐓𝐎, 𝐍𝐎 𝐄𝐒𝐓𝐀𝐒 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐃𝐎 🛑 ]*\n\n*—◉ 𝙿𝙰𝚁𝙰 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙳𝙴𝙱𝙴𝚂 𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙰𝚁𝚃𝙴, 𝚄𝚂𝙰 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾*\n*➣ #verificar*',
+        restrict: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂𝚃𝙰 𝚁𝙴𝚂𝚃𝚁𝙸𝙽𝙶𝙸𝙳𝙾/𝙳𝙴𝚂𝙰𝙲𝚃𝙸𝚅𝙰𝙳𝙾 𝙿𝙾𝚁 𝙳𝙴𝚂𝙸𝙲𝙸𝙾𝙽 𝙳𝙴𝙻 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾/𝙰 (𝙾𝚆𝙽𝙴𝚁) 𝙳𝙴𝙻 𝙱𝙾𝚃*'
     }[type]
     if (msg) return m.reply(msg)
 }
