@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
 7. Donasi seikhlasnya :v
 Sekian dari saya selaku Owner Bot. Terimakasih atas perhatiannya
 `.trim()
-conn.sendButton(m.chat, teks, '©' + author, 'CREATOR', '.creator', m)
+m.reply(teks)
 }
 handler.help = ['rules']
 handler.tags = ['info']
