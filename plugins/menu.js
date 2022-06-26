@@ -129,7 +129,12 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 *Mohon Dibaca!*
 
 Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
-`.trim(), m)
+`.trim(), m, false, {
+contextInfo: { externalAdReply: {
+title: 'Bot sedang dalam fase uji coba',
+body: 'Jangan ragu menghubungi saya jika ada saran', 
+sourceUrl: `https://wa.me/6282245409072`, 
+thumbnail: fs.readFileSync('./Menu2.jpg') }}})
     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
        hydratedTemplate: {
