@@ -125,6 +125,11 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    conn.reply(m.chat, `
+*Mohon Dibaca!*
+
+Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
+`.trim(), m)
     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
        hydratedTemplate: {
@@ -167,11 +172,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
      }
    }), { userJid: m.sender, quoted: m });
    return await conn.relayMessage(m.chat, template.message, { messageId: template.key.id }) 
-   conn.reply(m.chat, `
-*Mohon Dibaca!*
-
-Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
-`.trim(), m)
    } catch (e) {
      conn.reply(m.chat, 'Maaf, menu sedang error', m)
      throw e
