@@ -35,6 +35,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let { exp, limit, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = conn.getName(m.sender)
+    let pp = conn.getProfilePicture(m.sender)
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
@@ -125,7 +126,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.reply(m.chat, `
+    conn.sendFile(m.chat, pp, 'pp.jpg', `
 *Mohon Dibaca!*
 
 Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
