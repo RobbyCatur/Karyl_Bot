@@ -171,7 +171,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 *Mohon Dibaca!*
 
 Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
-`.trim(), m, false, { 
+`.trim(), { 
 contextInfo: { externalAdReply: {
 title: 'Bot masih dalam uji coba!',
 body: 'Jangan ragu hubungi saya jika ada saran', 
