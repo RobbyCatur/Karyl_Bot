@@ -10,7 +10,7 @@ let handler = async(m, { conn, args, isPrems, isOwner }) => {
     m.reply('Proses')
     if (!isLimit) await conn.sendMessage(m.chat, { document: { url: dl_link}, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted: m})
 }
-handler.help = ['ytmp3 <query>']
+handler.help = ['ytmp3 <link>']
 handler.tags = ['downloader']
 handler.command = /^yt(a(udio)?|mp3|musik|lagu)$/i
 handler.limit = true
