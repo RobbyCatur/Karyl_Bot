@@ -125,52 +125,62 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-   const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-    templateMessage: {
-      hydratedTemplate: {
-        hydratedContentText: text.trim(),
-	LocationMessage: null,
-        hydratedFooterText: 'Robby Catur',
-        hydratedButtons: [
-          {
-            urlButton: {
-              displayText: 'Instagram',
-              url: 'https://instagram.com/robbyv_2'
-            }
-          },
-          {
-            urlButton: {
-              displayText: 'Butuh Bantuan?',
-              url: 'https://wa.me/6282245409072/?text=Hai+min,+saya+butuh+bantuan+untuk+menggunakan+bot'    
-            }
-          },
-          {
-            quickReplyButton: {
-  	      displayText: 'Rules',
-  	      id: '.rules',
+    const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+     templateMessage: {
+       hydratedTemplate: {
+         hydratedContentText: text.trim(),
+	 LocationMessage: null,
+         hydratedFooterText: 'Robby Catur',
+         hydratedButtons: [
+           {
+             urlButton: {
+               displayText: 'Instagram',
+               url: 'https://instagram.com/robbyv_2'
              }
-          },
-          {
-            quickReplyButton: {
-              displayText: 'Owner',
-              id: '.owner',
-            }
-          },
-          {
-            quickReplyButton: {
-              displayText: 'Leaderboard',
-              id: '.lb',
-            }
-          }
-        ]
-      }
-    }
-  }), { userJid: m.sender, quoted: m });
-  return await conn.relayMessage(m.chat, template.message, { messageId: template.key.id })       
-  } catch (e) {
-    conn.reply(m.chat, 'Maaf, menu sedang error', m)
-    throw e
-  }
+           },
+           {
+             urlButton: {
+               displayText: 'Butuh Bantuan?',
+               url: 'https://wa.me/6282245409072/?text=Hai+min,+saya+butuh+bantuan+untuk+menggunakan+bot'    
+             }
+           },
+           {
+             quickReplyButton: {
+   	      displayText: 'Rules',
+   	      id: '.rules',
+              }
+           },
+           {
+             quickReplyButton: {
+               displayText: 'Owner',
+               id: '.owner',
+             }
+           },
+           {
+             quickReplyButton: {
+               displayText: 'Leaderboard',
+               id: '.lb',
+             }
+           }
+         ]
+       }
+     }
+   }), { userJid: m.sender, quoted: m });
+   return await conn.relayMessage(m.chat, template.message, { messageId: template.key.id }) 
+   conn.reply(m.chat, `*Mohon Dibaca!*\n\nBot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!`.trim(), m, false, {
+     contextInfo: {
+       externalAdReply:{
+         title: 'Bot masih dalam uji coba!',
+	 body: 'Jangan ragu hubungi saya jika ada saran',
+	 sourceUrl: 'https://wa.me/6282245409072',
+	 thumbnail: fs.readFileSync('./Karyl.jpg')
+           }
+       }
+     }
+   } catch (e) {
+     conn.reply(m.chat, 'Maaf, menu sedang error', m)
+     throw e
+   }
 }
 handler.help = ['menu', 'help', '?']
 handler.tags = ['main']
