@@ -62,4 +62,5 @@ handler.command = /^s(tic?ker)?(gif)?(wm)?$/i
 module.exports = handler
 
 const isUrl = (text) => {
-  return text.
+  return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png)/, 'gi'))
+}
