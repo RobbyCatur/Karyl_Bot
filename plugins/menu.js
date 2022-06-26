@@ -176,7 +176,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 	 thumbnail: fs.readFileSync('./Karyl.jpg')
            }
        }
-     }
+     })
    } catch (e) {
      conn.reply(m.chat, 'Maaf, menu sedang error', m)
      throw e
