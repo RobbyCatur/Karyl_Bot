@@ -167,16 +167,16 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
      }
    }), { userJid: m.sender, quoted: m });
    return await conn.relayMessage(m.chat, template.message, { messageId: template.key.id }) 
-   conn.reply(m.chat, `*Mohon Dibaca!*\n\nBot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!`.trim(), m, false, {
-     contextInfo: {
-       externalAdReply:{
-         title: 'Bot masih dalam uji coba!',
-	 body: 'Jangan ragu hubungi saya jika ada saran',
-	 sourceUrl: 'https://wa.me/6282245409072',
-	 thumbnail: fs.readFileSync('./Karyl.jpg')
-           }
-       }
-     })
+   conn.reply(m.chat, `
+*Mohon Dibaca!*
+
+Bot ini masih dalam proses pengembangan. Fitur yang ada disini belum lengkap dan dalam uji coba. Jika menemukan bug, error, atau ada saran lain, jangan ragu untuk menghubungi creator bot ini. Terima kasih!
+`.trim(), m, false, { 
+contextInfo: { externalAdReply: {
+title: 'Bot masih dalam uji coba!',
+body: 'Jangan ragu hubungi saya jika ada saran', 
+sourceUrl: `https://wa.me/6282245409072`, 
+thumbnail: fs.readFileSync('./karyl.jpg') }}})
    } catch (e) {
      conn.reply(m.chat, 'Maaf, menu sedang error', m)
      throw e
