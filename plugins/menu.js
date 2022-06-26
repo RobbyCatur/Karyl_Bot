@@ -134,7 +134,7 @@ contextInfo: { externalAdReply: {
 title: 'Bot sedang dalam fase uji coba',
 body: 'Jangan ragu menghubungi saya jika ada saran', 
 sourceUrl: `https://wa.me/6282245409072`, 
-thumbnail: fs.readFileSync('./Menu2.jpg') }}})
+thumbnail: fs.readFileSync('./Karyl.jpg') }}})
     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
        hydratedTemplate: {
